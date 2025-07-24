@@ -46,7 +46,7 @@ const Contact = () => {
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/hitch-media-29a866309/", color: "hover:text-blue-600" },
     { icon: Instagram, href: "https://www.instagram.com/hitchmedia7", color: "hover:text-pink-600" },
-    { icon: Twitter, href: "#", color: "hover:text-blue-400" },
+    // { icon: Twitter, href: "#", color: "hover:text-blue-400" },
     {
       icon: Facebook,
       href: "https://www.facebook.com/profile.php?id=61559806435904",
@@ -67,10 +67,11 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Responsive Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="md:col-span-2 xl:col-span-1">
+            <div className="bg-white rounded-2xl shadow-xl p-8 h-full">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Get In Touch
               </h3>
@@ -109,28 +110,39 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Social Media */}
-            <div className="bg-white rounded-2xl shadow-xl p-8">
+          {/* Social Media */}
+          <div className="md:col-span-1 xl:col-span-1">
+            <div className="bg-white rounded-2xl shadow-xl p-8 h-full">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Follow Us
               </h3>
-              <div className="flex space-x-4">
+              <div className="grid grid-cols-2 gap-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
-                    className={`bg-gray-100 rounded-full p-3 text-gray-600 ${social.color} transition-all duration-300 hover:scale-110`}
+                    className={`bg-gray-100 rounded-xl p-4 text-gray-600 ${social.color} transition-all duration-300 hover:scale-105 flex flex-col items-center space-y-2`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <social.icon className="h-6 w-6" />
+                    <social.icon className="h-8 w-8" />
+                    <span className="text-sm font-medium">
+                      {social.icon === Linkedin ? 'LinkedIn' : 
+                       social.icon === Instagram ? 'Instagram' : 
+                       social.icon === Twitter ? 'Twitter' : 'Facebook'}
+                    </span>
                   </a>
                 ))}
               </div>
             </div>
+          </div>
 
-            {/* WhatsApp Button */}
-            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl shadow-xl p-8 text-white">
-              <div className="flex items-center space-x-4">
+          {/* WhatsApp Button */}
+          <div className="md:col-span-1 xl:col-span-1">
+            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl shadow-xl p-8 text-white h-full flex flex-col justify-center">
+              <div className="flex items-center space-x-4 mb-6">
                 <MessageCircle className="h-8 w-8" />
                 <div>
                   <h3 className="text-xl font-bold">Need Quick Help?</h3>
@@ -139,7 +151,7 @@ const Contact = () => {
               </div>
               <a
                 href="https://wa.me/+919755638324"
-                className="mt-4 bg-white text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-50 transition-colors duration-300 flex items-center space-x-2 inline-flex"
+                className="bg-white text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-50 transition-colors duration-300 flex items-center justify-center space-x-2 w-full"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -147,118 +159,6 @@ const Contact = () => {
                 <span>Start WhatsApp Chat</span>
               </a>
             </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Send us a Message
-            </h3>
-
-            {isSubmitted && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-green-800 font-semibold">
-                  Thank you for your message! We'll get back to you soon.
-                </p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="How can we help you?"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                  placeholder="Tell us about your project..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-5 w-5" />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </button>
-            </form>
           </div>
         </div>
       </div>

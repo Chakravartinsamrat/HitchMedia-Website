@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, Star } from 'lucide-react';
 
 // Import local videos

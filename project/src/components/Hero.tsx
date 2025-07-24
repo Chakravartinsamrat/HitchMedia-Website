@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, Play, Sparkles } from 'lucide-react';
+import { ArrowDown, Play, Sparkles, Calendar } from 'lucide-react';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -15,6 +15,36 @@ const Hero = () => {
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, fullText]);
+
+  useEffect(() => {
+    // Load Calendly script on component mount
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    const link = document.createElement('link');
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
+    return () => {
+      document.body.removeChild(script);
+      document.head.removeChild(link);
+    };
+  }, []);
+
+  const openCalendlyPopup = () => {
+    // @ts-ignore
+    if (window.Calendly) {
+      // @ts-ignore
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/official-hitchmedia/30-min-consult'
+      });
+    }
+    /// incaSE you change the consultatuion link, change the above link with a new link
+    return false;
+  };
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -52,16 +82,14 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideInUp" style={{animationDelay: '2.5s'}}>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
-              <Play className="h-5 w-5" />
-              <span>Watch Our Story</span>
-            </button>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
+            
+            <a href="https://calendly.com/official-hitchmedia/30-min-consult"><button
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
             >
-              Get Started Today
-            </button>
+              <Calendar className="h-5 w-5" />
+              <span>Confirm a 1v1 Call with us Now!!</span>
+            </button></a>
+            
           </div>
         </div>
       </div>
