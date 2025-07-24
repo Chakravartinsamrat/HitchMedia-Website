@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
-import logo from "../../assets/hmlogo.png";
+import lightlogo from "../../assets/hmlogoLight.png";
+import darklogo from "../../assets/hmlogoDark.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -28,7 +29,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             {/*<Zap className={`h-8 w-8 ${scrolled ? 'text-blue-600' : 'text-white'}`} /> */}
-            <img src={logo}  alt="HitchMedialogo" className='h-8 w-8 object-contain'/>
+            <img src={scrolled ? darklogo : lightlogo}  alt="HitchMedialogo" className='h-8 w-8 object-contain'/>
             <span className={`text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
               HitchMedia
             </span>
