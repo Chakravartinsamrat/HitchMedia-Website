@@ -150,7 +150,7 @@ const Contact = () => {
                 </div>
               </div>
               <a
-                href="https://wa.me/+919755638324"
+                href="https://wa.me/+918279772603"
                 className="bg-white text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-50 transition-colors duration-300 flex items-center justify-center space-x-2 w-full"
                 target="_blank"
                 rel="noopener noreferrer"

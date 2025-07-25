@@ -109,7 +109,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="pt-20 pb-10 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
 
@@ -314,7 +314,7 @@ const About = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {features.map((feature, index) => (
             <div key={index} className="text-center group">
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
