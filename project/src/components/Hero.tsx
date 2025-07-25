@@ -81,15 +81,15 @@ const Hero = () => {
             Transform your business with cutting-edge digital marketing strategies that deliver measurable results and sustainable growth.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideInUp" style={{animationDelay: '2.5s'}}>
-            
-            <a href="https://calendly.com/official-hitchmedia/30-min-consult"><button
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
-            >
-              <Calendar className="h-5 w-5" />
-              <span>Confirm a 1v1 Call with us Now!!</span>
-            </button></a>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
+                <a href="https://calendly.com/official-hitchmedia/30-min-consult">
+                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 animate-pulse-scale">
+                    <Calendar className="h-5 w-5" />
+                    <span>Confirm a 1v1 Call with us Now!!</span>
+                    
+                  </button>
+                </a>
+              </div>
         </div>
       </div>
     </section>
