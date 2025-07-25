@@ -111,17 +111,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About HitchMedia
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're a passionate team of digital marketing experts committed to
-            helping businesses thrive in the digital landscape through
-            innovative strategies and exceptional execution.
-          </p>
-        </div>
+        
 
         {/* shitty youtube video */}
         <div className="max-w-7xl mx-auto px-4 mb-10 sm:px-6 lg:px-8">
@@ -284,7 +274,17 @@ const About = () => {
             </div>
           </div>
         </div>
-
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            About HitchMedia
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We're a passionate team of digital marketing experts committed to
+            helping businesses thrive in the digital landscape through
+            innovative strategies and exceptional execution.
+          </p>
+        </div>
         {/* Stats Counter */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           <div className="text-center">
