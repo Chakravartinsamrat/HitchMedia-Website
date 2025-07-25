@@ -89,7 +89,6 @@ const Hero = () => {
               <Calendar className="h-5 w-5" />
               <span>Confirm a 1v1 Call with us Now!!</span>
             </button></a>
-            
           </div>
         </div>
       </div>
