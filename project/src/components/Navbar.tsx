@@ -29,8 +29,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             {/*<Zap className={`h-8 w-8 ${scrolled ? 'text-blue-600' : 'text-white'}`} /> */}
-            <img src={scrolled ? darklogo : lightlogo}  alt="HitchMedialogo" className='h-8 w-8 object-contain'/>
-            <span className={`text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+            {/* <img src={scrolled ? darklogo : lightlogo}  alt="HitchMedialogo" className='h-8 w-8 object-contain'/> */}
+            <img src={darklogo}  alt="HitchMedialogo" className='h-8 w-8 object-contain'/>
+            {/* <span className={`text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}> */}
+            <span className={`text-2xl font-bold ${'text-gray-900' }`}>
               HitchMedia
             </span>
           </div>
@@ -42,8 +44,12 @@ const Navbar = () => {
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
                 className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  scrolled ? 'text-gray-900' : 'text-white'
+                  'text-gray-900'
                 }`}
+                // onClick={() => scrollToSection(item.toLowerCase())}
+                // className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                //   scrolled ? 'text-gray-900' : 'text-white'
+                // }`}
               >
                 {item}
               </button>
